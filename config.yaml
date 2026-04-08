@@ -1,0 +1,24 @@
+llm:
+  model: "MiniMax-M2.7"
+  temperature: 0.01
+
+chroma:
+  persist_directory: "./data/chroma_db"
+  embeddings_model: "shibing624/text2vec-base-chinese"
+
+models:
+  cache_path: "./models"
+
+retrieval:
+  default_top_k: 10
+  fusion_k: 60
+  rerank_top_k: 5
+  rerank_model: "BAAI/bge-reranker-base"
+
+prompts:
+  rag_system: |
+    你是一个严谨的企业知识库助手。
+    1. 请仅基于提供的背景资料（Context）回答用户的问题（Query）。
+    2. 如果资料中没有相关信息，请直接回答："抱歉，根据公司现有资料库无法回答此问题。"
+    3. 严禁编造任何数字、政策或事实。
+    4. 回答应保持专业、简洁、客观。
