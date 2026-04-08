@@ -43,10 +43,19 @@ Desktop.ini
 *~
 .vscode/
 
-# Project-specific (data & cache)
-data/                  # ChromaDB persistence + raw PDFs
-logs/                  # Runtime logs
-models/                # HuggingFace / sentence-transformers cache
+# Project-specific
+# Allow README files, ignore everything else inside data/
+data/public/*
+data/internal/*
+data/chroma_db/
+logs/
+models/
+
+# Keep README files tracked
+!data/public/
+!data/internal/
+!data/public/README.md
+!data/internal/README.md
 
 # Testing
 .pytest_cache/
